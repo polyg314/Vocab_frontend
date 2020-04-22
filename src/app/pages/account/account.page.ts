@@ -15,19 +15,34 @@ export class AccountPage implements OnInit {
   };
   
   logout(){
+    
     this.authService.logout()
     this.router.navigateByUrl('/login');
+    
   }
 
   
-  userName: string
-  ngOnInit() {
-    this.storage.get('user_name').then((user_name) => {
+  // userName: string
+  // userEmail: string
+
+  ionViewWillEnter(){
+
+      this.storage.get('user_name').then((user_name) => {
       this.userName = user_name
     });
     this.storage.get('user_email').then((user_email) => {
       this.userEmail = user_email
     });
+  }
+
+  ngOnInit() {
+    
+    // this.storage.get('user_name').then((user_name) => {
+    //   this.userName = user_name
+    // });
+    // this.storage.get('user_email').then((user_email) => {
+    //   this.userEmail = user_email
+    // });
   }
 
 
