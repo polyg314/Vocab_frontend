@@ -1,0 +1,15 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>My Account</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <h3 >Name: {{ userName }} </h3>
+    <h3 >Email: {{ userEmail }} </h3>
+    <ion-button expand="full" (click)="logout()">Logout</ion-button>  
+  </ion-content>
+</div>
