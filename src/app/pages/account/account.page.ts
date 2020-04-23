@@ -22,8 +22,8 @@ export class AccountPage implements OnInit {
   }
 
   
-  // userName: string
-  // userEmail: string
+  userName: string
+  userEmail: string
 
   ionViewWillEnter(){
 

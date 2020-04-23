@@ -9,27 +9,23 @@
   </ion-header>
   <ion-content>
     <ion-searchbar [(ngModel)]="searchQuery" (change)="search($event)" autocorrect="off" animated></ion-searchbar>
-    <ion-card>
+    <ion-card *ngIf="definitions_one.length > 0">
       <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
+        <ion-card-title>{{ searchTerm }}</ion-card-title>
       </ion-card-header>
-    
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      <ion-card-content><i>{{ desc_definitions_one}}</i></ion-card-content>
+      <ion-card-content *ngFor="let definition of definitions_one; let i = index">
+        <b>{{ i + 1 }}: </b>{{definition}}
       </ion-card-content>
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      <ion-card-content><i>{{ desc_definitions_two}}</i></ion-card-content>
+      <ion-card-content *ngFor="let definition of definitions_two; let i = index">
+        <b>{{ i + 1 }}: </b>{{definition}}
       </ion-card-content>
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      <ion-card-content><i>{{ desc_definitions_three }}</i></ion-card-content>
+      <ion-card-content *ngFor="let definition of definitions_three; let i = index">
+        <b>{{ i + 1 }}: </b>{{definition}}
       </ion-card-content>
     </ion-card>
+    <ion-button expand="full" (click)="res()" *ngIf="definitions_one.length > 0">Add to my dictionary</ion-button>  
   </ion-content>
 </div>
