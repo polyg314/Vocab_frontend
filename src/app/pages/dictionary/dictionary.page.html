@@ -9,8 +9,9 @@
   </ion-header>
  
 <ion-content>
+  <ion-item *ngFor="let word of my_dict">{{ word.word }}</ion-item>
 
-  <ion-item-group>
+  <!-- <ion-item-group>
     <ion-item-divider color="light">A</ion-item-divider>
     <ion-item>Angola</ion-item>
     <ion-item>Argentina</ion-item>
@@ -41,7 +42,7 @@
     <ion-item>Cuba</ion-item>
     <ion-item>Cyprus</ion-item>
     <ion-item>Czech Republic</ion-item>
-  </ion-item-group>
+  </ion-item-group> -->
 
 </ion-content>
 </div>

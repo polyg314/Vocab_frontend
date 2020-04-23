@@ -116,7 +116,7 @@ saveWord(){
     }
   }
 
-  this.my_dict.push([my_word])
+  this.my_dict.push(my_word)
 
   console.log(this.my_dict)
   

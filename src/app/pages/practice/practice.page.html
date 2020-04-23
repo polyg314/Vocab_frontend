@@ -8,6 +8,6 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <h3>Display Cards here</h3>
+    <h3 *ngIf="my_dict.length == 0">No words added to your dictionary yet. Please add via search page</h3>
   </ion-content>
 </div>
