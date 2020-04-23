@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from  '@ionic/storage';
+import { Router } from  "@angular/router";
 
 @Component({
   selector: 'app-tabs',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsPage implements OnInit {
 
-  constructor() { }
+  constructor(private  storage:  Storage, private  router:  Router) { 
+  };
 
+  // ionViewWillEnter(){
+  //   console.log('hi')
+  // }
   ngOnInit() {
+    console.log("init")
+    this.storage.get('user_name').then((user_name) => {
+      if(!user_name){
+        console.log("ok")
+        this.router.navigateByUrl('/login');
+      }
+    });
   }
 
   toggleMenu(){

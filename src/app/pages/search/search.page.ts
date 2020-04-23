@@ -17,7 +17,12 @@ export class SearchPage implements OnInit {
 
     
   }
+  // ionViewWillEnter(){
+  //   console.log('hi')
+  // }
+
   ngOnInit() {
+   
   }
   results: Promise<any>;
   //results: Promise<any>;
@@ -46,14 +51,19 @@ export class SearchPage implements OnInit {
       console.log(data);
       this.definitions_one = data[0]['shortdef']
       this.desc_definitions_one = data[0]['fl']
-      if(data[1]['shortdef'].length > 0){
-        this.definitions_two = data[1]['shortdef']
-        this.desc_definitions_two = data[1]['fl']
+      if(data[1]){
+        if(data[1]['shortdef'].length > 0){
+          this.definitions_two = data[1]['shortdef']
+          this.desc_definitions_two = data[1]['fl']
+        }
       }
-      if(data[2]['shortdef'].length > 0){
-        this.definitions_three = data[2]['shortdef']
-        this.desc_definitions_three = data[2]['fl']
+      if(data[2]){
+        if(data[2]['shortdef'].length > 0){
+          this.definitions_three = data[2]['shortdef']
+          this.desc_definitions_three = data[2]['fl']
+        }
       }
+ 
       // for (let i = 1; i < 5; i++) {
       //   console.log(data[i]['shortdef'])
       //   console.log(data[i]['shortdef'].length)
