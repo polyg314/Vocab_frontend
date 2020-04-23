@@ -8,6 +8,34 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <h3 *ngIf="my_dict.length == 0">No words added to your dictionary yet. Please add via search page</h3>
+    <h3 *ngIf="my_dict.length === 0">No words added to your dictionary yet. Please add via search page</h3>
+    <ion-card *ngIf="my_dict.length > 0">
+      <ion-card-header>
+        <ion-card-title *ngIf="practicing === true">{{ current_word }}</ion-card-title>
+        <ion-button *ngIf="practicing === false"  expand="block" (click)="beginPractice()">Go Through Flashcards</ion-button> 
+        
+        <ion-button *ngIf="onlyWord === true"  expand="block" (click)="showDefinitions()">Show Definition(s)</ion-button>       
+      </ion-card-header>      
+      <ion-card-content *ngIf="defs_shown === true">
+      <i>1. {{ desc_definitions_one}}</i>
+      <ul>
+        <li *ngFor="let definition of definitions_one; let i = index">{{definition}}</li>
+      </ul>
+    </ion-card-content>
+    <ion-card-content *ngIf="defs_shown === true">
+      <i *ngIf="desc_definitions_two.length > 1">2. {{ desc_definitions_two}}</i>
+      <ul *ngIf="desc_definitions_two.length > 1">
+        <li *ngFor="let definition of definitions_two; let i = index">{{definition}}</li>
+      </ul>
+    </ion-card-content>
+    <ion-card-content *ngIf="defs_shown === true">
+      <i *ngIf="desc_definitions_three.length > 1">3. {{ desc_definitions_three}}</i>
+      <ul *ngIf="desc_definitions_three.length > 1">
+        <li *ngFor="let definition of definitions_three; let i = index">{{definition}}</li>
+      </ul>
+    </ion-card-content>
+    <ion-button *ngIf="defs_shown === true && final_word === false"  expand="block" (click)="showNextCard()">Next Word</ion-button>
+    <ion-button *ngIf="defs_shown === true && final_word === true"  expand="block" (click)="finishStack()">Finish</ion-button>  
+    </ion-card>
   </ion-content>
 </div>
