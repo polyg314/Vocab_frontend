@@ -24,6 +24,7 @@ export class LoginPage implements OnInit {
 
   login(form){
     this.authService.login(form.value).subscribe((res)=>{
+      this.my_dict = [];
       console.log(res)
       if(res.user){
         console.log("res id")
