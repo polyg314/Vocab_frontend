@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
             this.storage.set("my_dict", this.my_dict);
           });
         // })    
-        this.router.navigateByUrl('/tabs/search');
+        //this.router.navigateByUrl('/tabs/search');
       }
 
     });
