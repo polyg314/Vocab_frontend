@@ -22,17 +22,17 @@ export class AccountPage implements OnInit {
   }
 
   
-  userName: string
-  userEmail: string
+  userName = this.authService.user_name
+  userEmail = this.authService.user_email
 
   ionViewWillEnter(){
 
-      this.storage.get('user_name').then((user_name) => {
-      this.userName = user_name
-    });
-    this.storage.get('user_email').then((user_email) => {
-      this.userEmail = user_email
-    });
+    //   this.storage.get('user_name').then((user_name) => {
+    //   this.userName = user_name
+    // });
+    // this.storage.get('user_email').then((user_email) => {
+    //   this.userEmail = user_email
+    // });
   }
 
   ngOnInit() {

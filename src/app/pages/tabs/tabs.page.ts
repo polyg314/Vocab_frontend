@@ -3,6 +3,7 @@ import { Storage } from  '@ionic/storage';
 import { Router } from  "@angular/router";
 import { AuthService } from '../../auth/auth.service';
 
+
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.page.html',
@@ -27,20 +28,20 @@ export class TabsPage implements OnInit {
     
   }
 
-  userName: string
-  userEmail: string
-  user_id: number
+  userName = this.authService.user_name;
+  userEmail = this.authService.user_email;
+  user_id = this.authService.user_id;
 
-  my_dict = [];
-  current_word: any 
+  // my_dict = [];
+  // current_word: any 
 
   ionViewWillEnter(){
-      this.storage.get('user_name').then((user_name) => {
-      this.userName = user_name
-    });
-    this.storage.get('user_email').then((user_email) => {
-      this.userEmail = user_email
-    });
+    //   this.storage.get('user_name').then((user_name) => {
+    //   this.userName = user_name
+    // });
+    // this.storage.get('user_email').then((user_email) => {
+    //   this.userEmail = user_email
+    // });
 
 
   }

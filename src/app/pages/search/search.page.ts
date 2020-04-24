@@ -20,21 +20,24 @@ export class SearchPage implements OnInit {
     
   }
 
-my_dict = [];
-user_id: number;
+userName = this.authService.user_name;
+userEmail = this.authService.user_email;
+user_id = this.authService.user_id;
+my_dict = this.authService.my_dict;
+
 
 ngOnInit() {
   console.log("init")
-  this.storage.get('my_dict').then((my_dict) => {
-    if(my_dict){
-      if(my_dict.length > 0){
-        this.my_dict = my_dict
-      }
-    }
-  });
-  this.storage.get('user_id').then((user_id) => {
-    this.user_id = user_id
-  });
+  // this.storage.get('my_dict').then((my_dict) => {
+  //   if(my_dict){
+  //     if(my_dict.length > 0){
+  //       this.my_dict = my_dict
+  //     }
+  //   }
+  // });
+  // this.storage.get('user_id').then((user_id) => {
+  //   this.user_id = user_id
+  // });
 }
   results: Promise<any>;
   searchTerm: string
@@ -102,10 +105,11 @@ saveWord(){
       defs: this.definitions_three
     }
   }
-  this.my_dict.push(my_word)
+  this.authService.my_dict.push(my_word)
   console.log("this.my_dict")
   console.log(this.my_dict)
-  this.storage.set("my_dict", this.my_dict);
+
+  // this.storage.set("my_dict", this.my_dict);
 
   //this.user_id = this.storage.get("user_id", res.user.id)
   const current_dict_object = {

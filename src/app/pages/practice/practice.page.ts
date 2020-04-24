@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from  '@ionic/storage';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-practice',
@@ -8,21 +9,23 @@ import { Storage } from  '@ionic/storage';
 })
 export class PracticePage implements OnInit {
 
-  constructor(private  storage:  Storage) { }
+  constructor(private  storage:  Storage, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-my_dict = []
+my_dict = this.authService.my_dict
 
 ionViewWillEnter(){
-  this.storage.get('my_dict').then((my_dict) => {
-    if(my_dict){
-      if(my_dict.length > 0){
-        this.my_dict = my_dict 
-      }
-    }
-  });
+  console.log(this.authService.my_dict)
+  console.log(this.authService.user_id)
+  // this.storage.get('my_dict').then((my_dict) => {
+  //   if(my_dict){
+  //     if(my_dict.length > 0){
+  //       this.my_dict = my_dict 
+  //     }
+  //   }
+  // });
 }
 
 practicing: boolean = false 

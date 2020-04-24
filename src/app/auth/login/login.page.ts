@@ -40,8 +40,10 @@ export class LoginPage implements OnInit {
             for (var i = 0; i < res.user_dict.length; i++) {
               this.my_dict.push(JSON.parse(res.user_dict[i]['dictionary']))
             }
-
-            this.storage.set("my_dict", this.my_dict);
+            this.authService.my_dict = this.my_dict;
+            console.log("loginnn")
+            console.log(this.my_dict)
+            //this.storage.set("my_dict", this.my_dict);
           });
         // })    
         //this.router.navigateByUrl('/tabs/search');
