@@ -45,8 +45,9 @@ ngOnInit() {
   desc_definitions_one: string
   desc_definitions_two: string
   desc_definitions_three: string
+  searchQuery: string
 
-  search(this){
+  search($event: any){
     this.definitions_one = []
     this.definitions_two = [];
     this.definitions_three = [];
@@ -58,7 +59,7 @@ ngOnInit() {
     var api_key = '16ae4026-d367-49ba-a295-db9a200ef47c';
     var word_id = this.searchQuery;
     var url = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/' + word_id + '?key=' + api_key; 
-    return this.results = this.http.get(url).subscribe((data: Response) => {
+    this.http.get(url).subscribe((data: Response) => {
       console.log(data);
       this.definitions_one = data[0]['shortdef']
       this.desc_definitions_one = data[0]['fl']
