@@ -81,6 +81,7 @@ export class AuthService {
     this.user_id = null;
     this.user_email = null;
     this.user_name = null;
+    this.my_dict = [];
     // await this.storage.remove("ACCESS_TOKEN");
     // await this.storage.remove("EXPIRES_IN");
     // await this.storage.remove("user_id")
@@ -94,6 +95,10 @@ export class AuthService {
   isLoggedIn() {
     if(this.user_id){
       this.authState.next(true);
+    }else{
+      this.user_email = null;
+      this.user_name = null;
+      this.my_dict = [];
     }
     // this.storage.get('user_id').then((response) => {
     //   if (response) {
