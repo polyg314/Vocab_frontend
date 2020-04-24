@@ -5,7 +5,9 @@ import { Observable, BehaviorSubject } from  'rxjs';
 
 import { Storage } from  '@ionic/storage';
 import { User } from  './user';
+import { UserDict } from  './user_dict';
 import { AuthResponse } from  './auth-response';
+import { DictResponse } from  './DictResponse';
 
 
 @Injectable({
@@ -61,6 +63,21 @@ export class AuthService {
   };
   isLoggedIn() {
     return this.authSubject.asObservable();
-  }
+  };
+  addToDictionary(current_dict_object: UserDict): Observable<DictResponse> {
+    return this.httpClient.post<DictResponse>(`${this.AUTH_SERVER_ADDRESS}/dictionary`, current_dict_object).pipe(
+      tap(async (res:  DictResponse ) => {
+
+        if (res.user) {
+          await this.storage.set("ACCESS_TOKEN", res.user.access_token);
+          await this.storage.set("EXPIRES_IN", res.user.expires_in);
+          await this.storage.set("user_id", res.user.id)
+          await this.storage.set("user_name", res.user.name)
+          await this.storage.set("user_email", res.user.email)
+          this.authSubject.next(true);
+        }
+      })
+    )}
+
 }
 
