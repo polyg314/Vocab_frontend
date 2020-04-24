@@ -17,13 +17,13 @@ export class TabsPage implements OnInit {
   //   console.log('hi')
   // }
   ngOnInit() {
-    console.log("init")
-    this.storage.get('user_name').then((user_name) => {
-      if(!user_name){
-        console.log("ok")
-        this.router.navigateByUrl('/login');
-      }
-    });
+    // console.log("init")
+    // this.storage.get('user_name').then((user_name) => {
+    //   if(!user_name){
+    //     console.log("ok")
+    //     this.router.navigateByUrl('/login');
+    //   }
+    // });
     
   }
 

@@ -16,7 +16,8 @@ import { DictResponse } from  './DictResponse';
 })
 
 export class AuthService {
-  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:3000';
+  // AUTH_SERVER_ADDRESS:  string  =  'http://localhost:3000';
+  AUTH_SERVER_ADDRESS:  string  =  'https://radiant-woodland-34220.herokuapp.com';
   authSubject  =  new  BehaviorSubject(false);
   constructor(private  httpClient:  HttpClient, private  storage:  Storage) { };
   register(user: User): Observable<AuthResponse> {
