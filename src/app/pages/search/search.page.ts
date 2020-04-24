@@ -102,6 +102,7 @@ saveWord(){
     }
   }
   this.my_dict.push(my_word)
+  console.log("this.my_dict")
   console.log(this.my_dict)
   this.storage.set("my_dict", this.my_dict);
 
@@ -111,10 +112,11 @@ saveWord(){
     dictionary: my_word
   }
 
-  console.log(current_dict_object)
+  // console.log('current_dict_object')
+  // console.log(current_dict_object)
 
   this.authService.addToDictionary(current_dict_object).subscribe((res) => {
-    console.log("RES 2")
+    console.log("add response")
     console.log(res)
     //this.router.navigateByUrl('tabs/search');
   });

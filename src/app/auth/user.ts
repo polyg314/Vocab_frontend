@@ -5,7 +5,3 @@ export interface User {
     password: string;
 }
 
-export interface user_dict {
-    user_id: number;
-    dictionary: object;
-}

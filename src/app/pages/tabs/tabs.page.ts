@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from  '@ionic/storage';
 import { Router } from  "@angular/router";
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-tabs',
@@ -9,7 +10,7 @@ import { Router } from  "@angular/router";
 })
 export class TabsPage implements OnInit {
 
-  constructor(private  storage:  Storage, private  router:  Router) { 
+  constructor(private  storage:  Storage, private  router:  Router,  private  authService:  AuthService) { 
   };
 
   // ionViewWillEnter(){
@@ -23,6 +24,25 @@ export class TabsPage implements OnInit {
         this.router.navigateByUrl('/login');
       }
     });
+    
+  }
+
+  userName: string
+  userEmail: string
+  user_id: number
+
+  my_dict = [];
+  current_word: any 
+
+  ionViewWillEnter(){
+      this.storage.get('user_name').then((user_name) => {
+      this.userName = user_name
+    });
+    this.storage.get('user_email').then((user_email) => {
+      this.userEmail = user_email
+    });
+
+
   }
 
   toggleMenu(){

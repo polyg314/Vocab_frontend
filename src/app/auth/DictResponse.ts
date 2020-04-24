@@ -1,9 +1,3 @@
 export interface DictResponse {
-    user: {
-        id: number,
-        name: string,
-        email: string,
-        access_token: string,
-        expires_in: number
-    }
+    user_dict: Array<string>
 }

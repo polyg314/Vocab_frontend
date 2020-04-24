@@ -20,6 +20,8 @@ ionViewWillEnter(){
     if(my_dict){
       if(my_dict.length > 0){
         this.my_dict = my_dict
+        console.log("my_dict_page")
+        console.log(my_dict)
       }
     }
   });
