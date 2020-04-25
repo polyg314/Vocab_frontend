@@ -25,6 +25,7 @@ export class AuthService {
   authSubject  =  new  BehaviorSubject(false);
   authState = new BehaviorSubject(false);
   user_id: number;
+  // user_id = 5;
   user_email: string;
   user_name: string;  
   my_dict = [];

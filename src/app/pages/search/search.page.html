@@ -8,7 +8,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-searchbar [(ngModel)]="searchQuery" (change)="search($event)" autocorrect="off" animated></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchQuery" [debounce]="50" (search)="search($event)" autocorrect="on" animated></ion-searchbar>
     <ion-card *ngIf="definitions_one.length > 0">
       <ion-card-header>
         <ion-card-title>{{ searchTerm }}</ion-card-title>
@@ -32,6 +32,8 @@
       </ul>
     </ion-card-content>
     </ion-card>
-    <ion-button expand="full" (click)="saveWord()" *ngIf="definitions_one.length > 0">Add to my dictionary</ion-button>  
+    <ion-button expand="full" (click)="saveWord()" *ngIf="definitions_one.length > 0 && added === false">Add to my dictionary</ion-button> 
+    <h6 *ngIf="added === true" id="added-text">Added to your dictionary</h6> 
   </ion-content>
 </div>
+

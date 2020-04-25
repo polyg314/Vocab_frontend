@@ -16,15 +16,14 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./search.page.scss'],
 })
 export class SearchPage implements OnInit {
-  constructor(private router: Router, private http: HttpClient, private storage: Storage, private  authService:  AuthService) { 
-    
+  constructor(private router: Router, private http: HttpClient, private storage: Storage, private  authService:  AuthService) {  
   }
 
 userName = this.authService.user_name;
 userEmail = this.authService.user_email;
 user_id = this.authService.user_id;
 my_dict = this.authService.my_dict;
-
+added: boolean;
 
 ngOnInit() {
   console.log("init")
@@ -51,6 +50,7 @@ ngOnInit() {
   searchQuery: string
 
   search($event: any){
+    this.added = false;
     this.definitions_one = []
     this.definitions_two = [];
     this.definitions_three = [];
@@ -121,6 +121,7 @@ saveWord(){
   // console.log(current_dict_object)
 
   this.authService.addToDictionary(current_dict_object).subscribe((res) => {
+    this.added = true;
     console.log("add response")
     console.log(res)
     //this.router.navigateByUrl('tabs/search');
